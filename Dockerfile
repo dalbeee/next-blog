@@ -25,10 +25,10 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
-RUN chown -R nextjs:nodejs /app/.next
-USER nextjs
+# RUN addgroup -g 1001 -S nodejs
+# RUN adduser -S nextjs -u 1001
+# RUN chown -R nextjs:nodejs /app/.next
+# USER nextjs
 
 EXPOSE 3000
 
@@ -37,4 +37,4 @@ EXPOSE 3000
 # Uncomment the following line in case you want to disable telemetry.
 # RUN npx next telemetry disable
 
-CMD ["node_modules/.bin/next", "start"]
+CMD ["npm", "start"]
