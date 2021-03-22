@@ -1,5 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useState } from "react";
+import { faCamera, faHome } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const [visible, setVisible] = useState(false);
@@ -8,7 +10,11 @@ const Header = () => {
       <div className="flex items-center justify-center w-full h-16">
         <Link href="/">
           <a className="flex items-center text-xl font-bold no-underline">
-            <i className="mx-2 text-2xl fas fa-home"></i>Home
+            <FontAwesomeIcon
+              icon={faHome}
+              className="mx-2 text-2xl text-gray-700"
+            />
+            Home
           </a>
         </Link>
       </div>
