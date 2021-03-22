@@ -11,9 +11,9 @@ const PostDetail = ({ post }) => {
   return (
     <div className="flex justify-center">
       <div className="" style={{ width: "860px" }}>
-        {/* <div className="py-4 text-4xl font-semibold text-gray-700">
+        <div className="py-4 text-4xl font-semibold text-gray-700">
           {post.title}
-        </div> */}
+        </div>
         <ReactMarkdown
           className="py-4 text-gray-700 break-words markdown"
           transformImageUri={(uri) =>
