@@ -2,6 +2,9 @@ import axios from "axios";
 import { ICategory } from "..";
 const URL = process.env.NEXT_PUBLIC_URL;
 
+console.log(URL);
+console.log("ax", process.env.NODE_ENV, process.env.TEST);
+
 export const getPost = async (slug: string) => {
   try {
     const { data } = await axios.get(`${URL}/posts?slug=${encodeURI(slug)}`);
