@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 const PostDetail = () => {
   const router = useRouter();
   const { posts } = useStore();
-  const post = posts.filter((post) => post.slug === router.query.slug)[0];
+  const post = posts.filter((post: any) => post.slug === router.query.slug)[0];
 
   return (
     <div className="flex justify-center">
