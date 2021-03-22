@@ -13,12 +13,6 @@ COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN npm run build
 
-RUN NEXT_PUBLIC_ENVIROMENT_VAR=APP_NEXT_PUBLIC_ENVIROMENT_VAR yarn build
-
-# Permisions to execute script
-RUN ["chmod", "+x", "./entrypoint.sh"]
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
-
 # Production image, copy all the files and run next
 FROM node:alpine AS runner
 WORKDIR /app
