@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { getPost } from "../../util/axios";
 
@@ -20,6 +21,13 @@ const PostDetail = ({ post }) => {
               ? uri
               : `${process.env.NEXT_PUBLIC_URL}${uri}`
           }
+          renderers={{
+            link: ({ children, href }) => (
+              <Link href={href}>
+                <a target="_blank">{children}</a>
+              </Link>
+            ),
+          }}
         >
           {post.content}
         </ReactMarkdown>
