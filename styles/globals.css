@@ -90,7 +90,7 @@
   }
 
   .markdown > kbd {
-    @apply inline-block px-1 font-mono text-xs font-normal align-middle border rounded shadow;
+    @apply inline-block px-1 font-mono text-xs font-normal align-middle border rounded shadow py-05;
   }
 
   .markdown > table {
