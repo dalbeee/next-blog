@@ -14,7 +14,6 @@ export const getServerSideProps = async () => {
 
 const Index = ({ posts }) => {
   console.log(process.env.NEXT_PUBLIC_URL);
-  console.log(process.env.TEST);
   return (
     <div>
       <App />
