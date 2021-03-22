@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ICategory } from "..";
+
 const URL = process.env.NEXT_PUBLIC_URL;
 
 export const getPost = async (slug: string) => {
