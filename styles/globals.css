@@ -77,17 +77,17 @@
     @apply pl-4 pr-4 text-base text-gray-600 border-l-4 border-gray-300;
   }
 
-  .markdown > code {
-    @apply p-1 text-red-500 bg-gray-300 rounded-lg;
+  .markdown code {
+    @apply p-1 text-red-500 bg-gray-200 rounded-lg;
   }
 
   .markdown > pre {
     @apply p-4 bg-gray-100 rounded;
   }
 
-  .markdown > pre code {
+  /* .markdown > pre code {
     @apply block p-0 overflow-visible bg-transparent rounded-none;
-  }
+  } */
 
   .markdown > kbd {
     @apply inline-block px-1 font-mono text-xs font-normal align-middle border rounded shadow;
