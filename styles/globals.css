@@ -85,9 +85,9 @@
     @apply p-4 bg-gray-100 rounded;
   }
 
-  /* .markdown > pre code {
-    @apply block p-0 overflow-visible bg-transparent rounded-none;
-  } */
+  .markdown pre > code {
+    @apply block p-2 overflow-visible leading-tight text-gray-600 bg-transparent bg-gray-200 rounded-none;
+  }
 
   .markdown > kbd {
     @apply inline-block px-1 font-mono text-xs font-normal align-middle border rounded shadow;
