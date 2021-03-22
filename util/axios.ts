@@ -1,9 +1,6 @@
 import axios from "axios";
 import { ICategory } from "..";
-const URL = "https://blog-api.urban-slow.net";
-
-console.log(URL);
-console.log("ax", process.env.NODE_ENV, process.env.NEXT_PUBLIC_URL);
+const URL = process.env.NEXT_PUBLIC_URL;
 
 export const getPost = async (slug: string) => {
   try {
