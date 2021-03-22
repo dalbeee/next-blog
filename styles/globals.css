@@ -21,6 +21,10 @@
     @apply mt-0 mb-4;
   }
 
+  .markdown a {
+    @apply text-gray-500 underline;
+  }
+
   .markdown > ul {
     @apply pl-8 text-base;
   }
