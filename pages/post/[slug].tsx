@@ -1,16 +1,25 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { getPost } from "../../util/axios";
+import * as codesandbox from "remark-codesandbox";
 
 export const getServerSideProps = async (context) => {
   const post = await getPost(context.params.slug);
   return { props: { post } };
 };
 
+const renderers = {
+  link: ({ children, href }) => (
+    <Link href={href}>
+      <a target="_blank">{children}</a>
+    </Link>
+  ),
+};
+
 const PostDetail = ({ post }) => {
   return (
     <div className="flex justify-center">
-      <div className="" style={{ width: "860px" }}>
+      <div className="w-full" style={{ maxWidth: "860px" }}>
         <div className="py-4 text-4xl font-semibold text-gray-700">
           {post.title}
         </div>
@@ -21,13 +30,8 @@ const PostDetail = ({ post }) => {
               ? uri
               : `${process.env.NEXT_PUBLIC_URL}${uri}`
           }
-          renderers={{
-            link: ({ children, href }) => (
-              <Link href={href}>
-                <a target="_blank">{children}</a>
-              </Link>
-            ),
-          }}
+          // plugins={[codesandbox, { mode: "button" }]}
+          renderers={renderers}
         >
           {post.content}
         </ReactMarkdown>

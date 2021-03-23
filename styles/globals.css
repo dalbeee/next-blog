@@ -90,7 +90,7 @@
   }
 
   .markdown pre > code {
-    @apply block p-2 overflow-visible leading-tight text-gray-600 bg-transparent bg-gray-200 rounded-none;
+    @apply block p-2 overflow-visible overflow-x-auto leading-tight text-gray-600 bg-transparent bg-gray-200 rounded-none;
   }
 
   .markdown kbd {
