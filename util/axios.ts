@@ -71,7 +71,7 @@ export const getCategoryPosts = async (categoryName: string) => {
   let isLoading = false;
 
   const categoryString =
-    categoryName !== "all" ? `categories.type=${categoryName}` : ``;
+    typeof categoryName === "string" ? `categories.type=${categoryName}` : ``;
 
   try {
     isLoading = true;
