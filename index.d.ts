@@ -7,6 +7,7 @@ export interface IPost {
     id: string;
   };
   created_at?: number;
+  slug: string;
 }
 
 export interface ICategory {

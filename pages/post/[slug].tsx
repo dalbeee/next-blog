@@ -1,11 +1,18 @@
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import { getPost } from "../../util/axios";
+import { IPost } from "../..";
+import { getPost, getPosts } from "../../util/axios";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const post = await getPost(context.params.slug as string);
-  return { props: { post } };
+  return { props: { post }, revalidate: 60 };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts: IPost[] = await getPosts();
+  const paths = posts.map((post) => ({ params: { slug: post.slug } }));
+  return { paths, fallback: false };
 };
 
 const renderers = {
