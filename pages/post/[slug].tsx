@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts: IPost[] = await getPosts();
   const paths = posts.map((post) => ({ params: { slug: post.slug } }));
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
 const renderers = {
