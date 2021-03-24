@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import { useStore } from "../hooks/store";
+// import { useStore } from "../hooks/store";
 
-const Category = () => {
-  const { category } = useStore();
+const Category = ({ category }) => {
+  // const { category } = useStore();
   const router = useRouter();
 
   const handleChangeCategory = (c) => {

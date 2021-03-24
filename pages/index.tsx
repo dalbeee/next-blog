@@ -1,10 +1,29 @@
+import { GetStaticProps } from "next";
 import React from "react";
-import App from "../components/App";
+import { ICategory, IPost } from "..";
+import Category from "../components/Category";
+import Posts from "../components/Posts";
+import { getCategories, getCategoryPosts } from "../util/axios";
 
-const Index = () => {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { posts = [] }: { posts?: IPost[] } = await getCategoryPosts(
+    context.params?.category as string
+  );
+
+  const {
+    categories: category,
+  }: { categories?: ICategory[] } = await getCategories();
+  return {
+    props: { posts, category },
+    revalidate: 60,
+  };
+};
+
+const Index = ({ posts, category }) => {
   return (
-    <div>
-      <App />
+    <div className="flex">
+      <Posts posts={posts} />
+      <Category category={category} />
     </div>
   );
 };

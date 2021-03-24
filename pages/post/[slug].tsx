@@ -1,10 +1,10 @@
+import { GetStaticProps } from "next";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { getPost } from "../../util/axios";
-import * as codesandbox from "remark-codesandbox";
 
-export const getServerSideProps = async (context) => {
-  const post = await getPost(context.params.slug);
+export const getStaticProps: GetStaticProps = async (context) => {
+  const post = await getPost(context.params.slug as string);
   return { props: { post } };
 };
 
