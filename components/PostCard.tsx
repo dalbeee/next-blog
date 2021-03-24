@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const regexStr = /(!\[.*\)\s)|(#\s)/g;
 
@@ -13,16 +14,20 @@ const PostCard = ({ post }) => {
       <Link href={`/post/${post.slug}`}>
         <a>
           <div className="flex flex-col items-center justify-center no-underline">
-            <div className="mb-2">
-              <img
-                src={
-                  post.thumbnail
-                    ? process.env.NEXT_PUBLIC_URL + post.thumbnail
-                    : "/thumbnail_default.jpg"
-                }
-                alt=""
-                className="object-cover w-full h-32 overflow-hidden"
-              />
+            <div className="w-full mb-2">
+              <div className="relative w-full h-32 overflow-hidden ">
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  quality={95}
+                  src={
+                    post.thumbnail
+                      ? process.env.NEXT_PUBLIC_URL + post.thumbnail
+                      : "/thumbnail_default.jpg"
+                  }
+                  alt=""
+                />
+              </div>
             </div>
             <div className="w-full px-2 text-gray-400 ">
               <div className="font-semibold text-gray-700 truncate">
