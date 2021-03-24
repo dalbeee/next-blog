@@ -1,20 +1,25 @@
+import { useRouter } from "next/router";
 import { createContext, useContext, useEffect, useState } from "react";
 import { ICategory, IPost } from "..";
 import { getCategories, getCategoryPosts, getPosts } from "../util/axios";
 
+const route = (type) => {
+  const router = useRouter();
+  router.push(`/category?${type}`);
+};
+
 const reducer = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
   const [category, setCategory] = useState<ICategory[]>([]);
-  const [activeCategory, setActiveCategory] = useState(null);
+  const [activeCategory, setActiveCategory] = useState("all");
 
   const changeCategory = (type: string) => {
     setActiveCategory(type);
+    route(type);
   };
 
   useEffect(() => {
-    getCategoryPosts(activeCategory || "all").then((res) =>
-      setPosts(res.posts)
-    );
+    getCategoryPosts(activeCategory).then((res) => setPosts(res.posts));
     getCategories().then((res) => setCategory(res.categories));
   }, [activeCategory]);
 

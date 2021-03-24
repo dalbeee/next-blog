@@ -45,7 +45,7 @@ export const getCategories = async () => {
 
     const { data: allPosts } = await axios.get(`${URL}/posts`);
     categories.push({
-      type: "",
+      type: null,
       posts: allPosts.length,
       name: "all",
     });
@@ -71,7 +71,9 @@ export const getCategoryPosts = async (categoryName: string) => {
   let isLoading = false;
 
   const categoryString =
-    typeof categoryName === "string" ? `categories.type=${categoryName}` : ``;
+    typeof categoryName === "string" && categoryName !== "all"
+      ? `categories.type=${categoryName}`
+      : ``;
 
   try {
     isLoading = true;

@@ -10,7 +10,7 @@ const PostCard = ({ post }) => {
 
   return (
     <div className="w-full mb-4 overflow-hidden bg-gray-200 rounded-t-2xl ">
-      <Link href={`post/${post.slug}`}>
+      <Link href={`/post/${post.slug}`}>
         <a>
           <div className="flex flex-col items-center justify-center no-underline">
             <div className="mb-2">
