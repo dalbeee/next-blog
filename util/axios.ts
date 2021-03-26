@@ -4,10 +4,8 @@ import { ICategory } from "..";
 const URL = process.env.NEXT_PUBLIC_URL;
 
 // axios.defaults.baseURL = 'http://localhost:8001';
-axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
-axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
-
-
+// axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
+// axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 export const getPost = async (slug: string) => {
   try {
