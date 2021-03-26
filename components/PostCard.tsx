@@ -15,7 +15,7 @@ const PostCard = ({ post }) => {
         <a>
           <div className="flex flex-col items-center justify-center no-underline">
             <div className="w-full mb-2">
-              <div className="relative w-full h-32 overflow-hidden ">
+              {/* <div className="relative w-full h-32 overflow-hidden ">
                 <Image
                   layout="fill"
                   objectFit="cover"
@@ -27,7 +27,15 @@ const PostCard = ({ post }) => {
                   }
                   alt=""
                 />
-              </div>
+              </div> */}
+              <img
+                src={
+                  post.thumbnail
+                    ? process.env.NEXT_PUBLIC_URL + post.thumbnail
+                    : "/thumbnail_default.jpg"
+                }
+                className="relative w-full h-32 overflow-hidden "
+              />
             </div>
             <div className="w-full px-2 text-gray-400 ">
               <div className="font-semibold text-gray-700 truncate">
