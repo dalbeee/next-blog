@@ -37,11 +37,11 @@ const PostDetail = ({ post }) => {
         </div>
         <ReactMarkdown
           className="py-4 text-gray-700 break-words markdown"
-          transformImageUri={(uri) =>
-            uri.startsWith("http")
-              ? uri
-              : `${process.env.NEXT_PUBLIC_URL}${uri}`
-          }
+          // transformImageUri={(uri) =>
+          //   uri.startsWith("http")
+          //     ? uri
+          //     : `${process.env.NEXT_PUBLIC_URL}${uri}`
+          // }
           // plugins={[codesandbox, { mode: "button" }]}
           renderers={renderers}
         >
