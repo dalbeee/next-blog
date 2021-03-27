@@ -30,9 +30,8 @@ const PostCard = ({ post }) => {
               </div> */}
               <img
                 src={
-                  post.thumbnail
-                    ? process.env.NEXT_PUBLIC_URL + post.thumbnail
-                    : "/thumbnail_default.jpg"
+                  post.thumbnail ? post.thumbnail : "/thumbnail_default.jpg"
+                  // ? process.env.NEXT_PUBLIC_URL + post.thumbnail
                 }
                 className="relative w-full h-32 overflow-hidden "
               />
