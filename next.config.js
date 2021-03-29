@@ -1,6 +1,10 @@
-// // next.config.js
-// module.exports = {
-//   images: {
-//     domains: ["blog-api.codingpalette.net"],
-//   },
-// };
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: "/uploads/:slug*",
+        destination: "http://strapi.local:1337/uploads/:slug*",
+      },
+    ];
+  },
+};

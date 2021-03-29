@@ -12,7 +12,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts: IPost[] = await getPosts();
-  const paths = posts.map((post) => ({ params: { slug: post.slug } }));
+  const paths = posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
   return { paths, fallback: true };
 };
 
@@ -37,12 +39,6 @@ const PostDetail = ({ post }) => {
         </div>
         <ReactMarkdown
           className="py-4 text-gray-700 break-words markdown"
-          // transformImageUri={(uri) =>
-          //   uri.startsWith("http")
-          //     ? uri
-          //     : `${process.env.NEXT_PUBLIC_URL}${uri}`
-          // }
-          // plugins={[codesandbox, { mode: "button" }]}
           renderers={renderers}
         >
           {post.content}
