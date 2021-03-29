@@ -9,7 +9,9 @@ const URL = process.env.NEXT_PUBLIC_URL;
 
 export const getPost = async (slug: string) => {
   try {
-    const { data } = await axios.get(`${URL}/posts?slug=${encodeURI(slug)}`);
+    const { data } = await axios.get(
+      `${URL}/posts?slug=${encodeURIComponent(slug)}`
+    );
     return data[0];
   } catch (error) {
     console.log(error);
