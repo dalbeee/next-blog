@@ -33,9 +33,9 @@
     @apply pl-8 text-base list-decimal;
   }
 
-  .markdown li {
+  /* .markdown li {
     @apply inline-block p-3 text-2xl font-semibold bg-gray-600 bg-yellow-100 rounded-xl;
-  }
+  } */
 
   .markdown li + li {
     @apply mt-1;
