@@ -24,6 +24,7 @@ RUN npm run build
 FROM node:alpine AS runner
 RUN mkdir /app
 WORKDIR /app
+COPY package.json .
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 
