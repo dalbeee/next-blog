@@ -14,11 +14,18 @@ WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 
+ARG NEXT_PUBLIC_URL
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NO_UPDATE_NOTIFIER=true
 
-# RUN npm run build
+RUN npm run build
+
+FROM node:alpine AS runner
+RUN mkdir /app
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=builder /app/.next ./.next
 
 EXPOSE 3000
-CMD ["npm", "run", "start:docker"]
+CMD ["npm", "start"]
