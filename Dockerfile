@@ -14,7 +14,7 @@ WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 
-ARG NEXT_PUBLIC_URL
+ENV NEXT_PUBLIC_URL localhost
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NO_UPDATE_NOTIFIER=true
