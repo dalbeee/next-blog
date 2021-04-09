@@ -14,17 +14,17 @@ WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 
-ENV NEXT_PUBLIC_URL localhost
+ARG NEXT_PUBLIC_URL
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NO_UPDATE_NOTIFIER=true
-
+RUN echo -e "args:\nNEXT_PUBLIC_URL:$NEXT_PUBLIC_URL\nNODE_ENV:$NODE_ENV\nNEXT_TELEMETRY_DISABLED:$NEXT_TELEMETRY_DISABLED"
 RUN npm run build
 
 FROM node:alpine AS runner
 RUN mkdir /app
 WORKDIR /app
-COPY package.json .
+COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 
