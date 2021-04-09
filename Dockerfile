@@ -14,7 +14,7 @@ WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 
-ARG NEXT_PUBLIC_URL
+ARG NEXT_PUBLIC_URL=http://strapi.codingpalette.net
 ENV NEXT_PUBLIC_URL $NEXT_PUBLIC_URL
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
